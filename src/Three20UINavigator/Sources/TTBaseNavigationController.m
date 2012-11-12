@@ -112,6 +112,25 @@
   return poppedController;
 }
 
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (BOOL)shouldAutorotate
+{
+    if (nil != self.topViewController) {
+        return [self.topViewController shouldAutorotate];
+    }
+
+    return [super shouldAutorotate];
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (NSUInteger)supportedInterfaceOrientations
+{
+    if (nil != self.topViewController) {
+        return [self.topViewController supportedInterfaceOrientations];
+    }
+
+    return [super supportedInterfaceOrientations];
+}
 
 @end
 
