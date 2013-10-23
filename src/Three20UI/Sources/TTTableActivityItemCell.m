@@ -66,6 +66,12 @@
   [super layoutSubviews];
 
   UITableView* tableView = (UITableView*)self.superview;
+
+  if (floor(NSFoundationVersionNumber) > NSFoundationVersionNumber_iOS_6_1) {
+    // Load resources for iOS 7 or later
+    tableView = (UITableView*)self.superview.superview;
+  }
+
   if (tableView.style == UITableViewStylePlain) {
     _activityLabel.frame = self.contentView.bounds;
 
